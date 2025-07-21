@@ -1,0 +1,564 @@
+:root {
+  --background: hsl(30, 25%, 98%);
+  --foreground: hsl(30, 10%, 10%);
+  --primary: hsl(34, 40%, 50%);
+  --gold-50: hsl(34, 40%, 95%);
+  --gold-500: hsl(34, 40%, 50%);
+  --gold-600: hsl(34, 40%, 45%);
+  --sage-50: hsl(120, 5%, 96%);
+  --muted: hsl(30, 5%, 45%);
+  --radius: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant', serif;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
+  transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.nav-logo {
+  font-family: 'Cormorant', serif;
+  color: var(--gold-500);
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-links a {
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold-500);
+}
+
+.mobile-menu-button {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb') center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+
+.hero h1 span {
+  display: block;
+  font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.primary-button {
+  background: var(--gold-500);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.primary-button:hover {
+  background: var(--gold-600);
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* About Section */
+.about {
+  padding: 5rem 0;
+}
+
+.about-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.features {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+.feature-icon {
+  padding: 0.75rem;
+  background: var(--gold-50);
+  border-radius: var(--radius);
+  color: var(--gold-500);
+}
+
+/* Services Section */
+.services {
+  padding: 5rem 0;
+  background-color: var(--sage-50);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-tag {
+  color: var(--gold-500);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  background: var(--gold-50);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-500);
+}
+
+.price {
+  display: block;
+  color: var(--gold-500);
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+.book-button {
+  background: var(--gold-500);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-button:hover {
+  background: var(--gold-600);
+}
+
+/* Interactive Section */
+.interactive {
+  padding: 5rem 0;
+}
+
+.interactive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .interactive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tarot-game {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.tarot-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tarot-card {
+  aspect-ratio: 2/3;
+  background: linear-gradient(45deg, var(--gold-500), var(--gold-600));
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.tarot-card:hover {
+  transform: translateY(-10px);
+}
+
+.horoscope {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.zodiac-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Social Section */
+.social {
+  padding: 5rem 0;
+  background-color: var(--sage-50);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .social-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: var(--radius);
+  transition: background-color 0.3s;
+}
+
+.social-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: currentColor;
+}
+
+.instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.insta-post {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.insta-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.insta-post:hover img {
+  transform: scale(1.1);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 5rem 0;
+}
+
+.testimonials-slider {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.testimonial-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stars {
+  color: var(--gold-500);
+  margin-bottom: 1rem;
+}
+
+.client-name {
+  display: block;
+  color: var(--gold-500);
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--muted);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--gold-500);
+}
+
+/* Contact Section */
+.contact {
+  padding: 5rem 0;
+  background-color: var(--sage-50);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-icon {
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-500);
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-500);
+}
+
+.submit-button {
+  width: 100%;
+  background: var(--gold-500);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background: var(--gold-600);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
